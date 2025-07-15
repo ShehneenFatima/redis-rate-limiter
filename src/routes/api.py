@@ -4,11 +4,11 @@ from models.users import get_user
 router = APIRouter()
 
 @router.get("/public")
-async def public():
+def public():
     return "Public API response"
 
 @router.get("/user-info")
-async def user_info(request: Request):
+ def user_info(request: Request):
     user = get_user(request.client.host)
     return {
         "ip": request.client.host,
